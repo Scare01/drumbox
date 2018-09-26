@@ -23,6 +23,7 @@ class App extends React.Component {
                 <div className="controlsButton"></div>
                 <div className="controlsButton"></div>
             </div>
+            <div id="copyright">RubyLupus</div>
         </div>)
     }
 }
