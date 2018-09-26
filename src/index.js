@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 const buttonStyle = {
-    backgroundColor: '#cece4b',
-    boxShadow: '0 0 2 px #787821'
+    backgroundColor: '#efefc3',
+    boxShadow: '0 0 2px #787821'
 }
 
 const pressButtonStyle = {
-    //backgroundColor: 'radial-gradient(#fafaeb, #cece4b)',
-    backgroundColor: 'blue',
-    boxShadow: 'inset 0 0 2 px #787821'
+    backgroundColor: '#f4f4d7',
+    //backgroundColor: 'blue',
+    boxShadow: 'inset 0 0 2px #787821'
 }
 
 class App extends React.Component {
@@ -23,10 +23,11 @@ class App extends React.Component {
     }
 
     buttonClick() {
+
         this.setState({padStyle: pressButtonStyle})
         setTimeout(() => {
             this.setState({padStyle: buttonStyle});
-        }, 200);
+        }, 400);
 
     }
 
@@ -34,14 +35,14 @@ class App extends React.Component {
         return (<div id="drum-machine">
             <div id="display">
                 <div className="drum-pad" style={this.state.padStyle} onClick={this.buttonClick}>Q</div>
-                <div className="drum-pad" style={this.state.padStyle}>W</div>
-                <div className="drum-pad" style={this.state.padStyle}>E</div>
-                <div className="drum-pad" style={this.state.padStyle}>A</div>
-                <div className="drum-pad" style={this.state.padStyle}>S</div>
-                <div className="drum-pad" style={this.state.padStyle}>D</div>
-                <div className="drum-pad" style={this.state.padStyle}>Z</div>
-                <div className="drum-pad" style={this.state.padStyle}>X</div>
-                <div className="drum-pad" style={this.state.padStyle}>C</div>
+                <div className="drum-pad" style={this.state.padStyle} onClick={this.buttonClick}>W</div>
+                <div className="drum-pad" style={this.state.padStyle} onClick={this.buttonClick}>E</div>
+                <div className="drum-pad" style={this.state.padStyle} onClick={this.buttonClick}>A</div>
+                <div className="drum-pad" style={this.state.padStyle} onClick={this.buttonClick}>S</div>
+                <div className="drum-pad" style={this.state.padStyle} onClick={this.buttonClick}>D</div>
+                <div className="drum-pad" style={this.state.padStyle} onClick={this.buttonClick}>Z</div>
+                <div className="drum-pad" style={this.state.padStyle} onClick={this.buttonClick}>X</div>
+                <div className="drum-pad" style={this.state.padStyle} onClick={this.buttonClick}>C</div>
             </div>
             <div id="controls">
                 <div className="controlsButton"></div>
