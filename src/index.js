@@ -7,7 +7,23 @@ class App extends React.Component {
         super(props);
     }
     render() {
-        return (<h1>Hello</h1>)
+        return (<div id="drum-machine">
+            <div id="display">
+                <div className="drum-pad"></div>
+                <div className="drum-pad"></div>
+                <div className="drum-pad"></div>
+                <div className="drum-pad"></div>
+                <div className="drum-pad"></div>
+                <div className="drum-pad"></div>
+                <div className="drum-pad"></div>
+                <div className="drum-pad"></div>
+                <div className="drum-pad"></div>
+            </div>
+            <div id="controls">
+                <div className="controlsButton"></div>
+                <div className="controlsButton"></div>
+            </div>
+        </div>)
     }
 }
 
