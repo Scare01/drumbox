@@ -13,22 +13,72 @@ const pressButtonStyle = {
     boxShadow: 'inset 0 0 2px #787821'
 }
 
-class App extends React.Component {
+const buttons = [
+    {
+        keyCode: 81,
+        keyTrigger: 'Q'
+    }, {
+        keyCode: 87,
+        keyTrigger: 'W'
+    }, {
+        keyCode: 69,
+        keyTrigger: 'E'
+    }, {
+        keyCode: 65,
+        keyTrigger: 'A'
+    }, {
+        keyCode: 83,
+        keyTrigger: 'S'
+    }, {
+        keyCode: 68,
+        keyTrigger: 'D'
+    }, {
+        keyCode: 90,
+        keyTrigger: 'Z'
+    }, {
+        keyCode: 88,
+        keyTrigger: 'X'
+    }, {
+        keyCode: 67,
+        keyTrigger: 'C'
+    }
+];
+class Button extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             padStyle: buttonStyle
         }
-        this.buttonClick = this.buttonClick.bind(this)
+        this.buttonClick = this.buttonClick.bind(this);
+    }
+
+    componentDidMount() {
+        document.addEventListener('keydown', this.buttonClick);
+    }
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.buttonClick);
     }
 
     buttonClick() {
-
         this.setState({padStyle: pressButtonStyle})
         setTimeout(() => {
             this.setState({padStyle: buttonStyle});
         }, 400);
+    }
 
+}
+class Buttons extends React.Component {
+    contructor(props) {
+        super(props);
+    }
+
+}
+
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {}
+        this.buttonClick = this.buttonClick.bind(this)
     }
 
     render() {
