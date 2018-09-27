@@ -23,18 +23,28 @@ class Button extends React.Component {
 
     componentDidMount() {
         document.addEventListener('keydown', this.buttonClick);
+        document.addEventListener('click', this.buttonClick);
+
     }
     componentWillUnmount() {
         document.removeEventListener('keydown', this.buttonClick);
+        document.removeEventListener('click', this.buttonClick);
     }
-
     buttonClick(e) {
         if (e.keyCode === this.props.keyCode) {
-            this.setState({padStyle: pressButtonStyle});
-            setTimeout(() => {
-                this.setState({padStyle: buttonStyle});
-            }, 400);
+            this.playSound();
         }
+    }
+    pressButton() {
+        this.state.padStyle.backgroundColor === '#f4f4d7'
+            ? this.setState({padStyle: buttonStyle})
+            : this.setState({padStyle: pressButtonStyle});
+    }
+
+    playSound() {
+        this.pressButton();
+        setTimeout(() => this.pressButton(), 500);
+
     }
 
     render() {
