@@ -19,36 +19,37 @@ class Button extends React.Component {
             padStyle: buttonStyle
         }
         this.buttonClick = this.buttonClick.bind(this);
+        this.playSound = this.playSound.bind(this)
+
     }
 
     componentDidMount() {
         document.addEventListener('keydown', this.buttonClick);
-        document.addEventListener('click', this.buttonClick);
 
     }
     componentWillUnmount() {
         document.removeEventListener('keydown', this.buttonClick);
-        document.removeEventListener('click', this.buttonClick);
+
     }
     buttonClick(e) {
         if (e.keyCode === this.props.keyCode) {
             this.playSound();
         }
     }
-    pressButton() {
-        this.state.padStyle.backgroundColor === '#f4f4d7'
-            ? this.setState({padStyle: buttonStyle})
-            : this.setState({padStyle: pressButtonStyle});
-    }
 
-    playSound() {
-        this.pressButton();
-        setTimeout(() => this.pressButton(), 500);
+    playSound(e) {
+        const sound = document.getElementById(this.props.keyTrigger);
+        sound.currentTime = 0;
+        sound.play();
+
+        this.setState({padStyle: pressButtonStyle});
+        setTimeout(() => this.setState({padStyle: buttonStyle}), 500);
 
     }
 
     render() {
-        return (<div id={this.props.keyTrigger} className="drum-pad" style={this.state.padStyle} onClick={this.buttonClick}>
+        return (<div id={this.props.id} className="drum-pad" style={this.state.padStyle} onClick={this.playSound}>
+            <audio className='clip' id={this.props.keyTrigger} src={this.props.clip}></audio>
             {this.props.keyTrigger}
         </div>);
     }
