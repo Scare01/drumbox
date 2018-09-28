@@ -57,8 +57,10 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            padButtons: buttons
+            padButtons: buttons,
+            display: ''
         }
+
     }
 
     render() {

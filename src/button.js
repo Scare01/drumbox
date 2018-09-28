@@ -16,7 +16,8 @@ class Button extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            padStyle: buttonStyle
+            padStyle: buttonStyle,
+            name: ''
         }
         this.buttonClick = this.buttonClick.bind(this);
         this.playSound = this.playSound.bind(this)
@@ -41,16 +42,16 @@ class Button extends React.Component {
         const sound = document.getElementById(this.props.keyTrigger);
         sound.currentTime = 0;
         sound.play();
-
         this.setState({padStyle: pressButtonStyle});
         setTimeout(() => this.setState({padStyle: buttonStyle}), 500);
-
+        this.setState({name: this.props.id})
     }
 
     render() {
         return (<div id={this.props.id} className="drum-pad" style={this.state.padStyle} onClick={this.playSound}>
             <audio className='clip' id={this.props.keyTrigger} src={this.props.clip}></audio>
             {this.props.keyTrigger}
+            {this.props.name}
         </div>);
     }
 }
