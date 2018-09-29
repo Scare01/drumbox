@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const buttonStyle = {
     backgroundColor: '#efefc3',
@@ -12,12 +11,11 @@ const pressButtonStyle = {
     boxShadow: 'inset 0 0 2px #787821'
 }
 
-class Button extends React.Component {
+export default class Button extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            padStyle: buttonStyle,
-            name: ''
+            padStyle: buttonStyle
         }
         this.buttonClick = this.buttonClick.bind(this);
         this.playSound = this.playSound.bind(this)
@@ -38,7 +36,7 @@ class Button extends React.Component {
         }
     }
 
-    playSound(e) {
+    playSound() {
         const sound = document.getElementById(this.props.keyTrigger);
         sound.currentTime = 0;
         sound.play();
@@ -49,11 +47,9 @@ class Button extends React.Component {
 
     render() {
         return (<div id={this.props.id} className="drum-pad" style={this.state.padStyle} onClick={this.playSound}>
-            <audio className='clip' id={this.props.keyTrigger} src={this.props.clip}></audio>
             {this.props.keyTrigger}
+            <audio className='clip' id={this.props.keyTrigger} src={this.props.clip}></audio>
 
         </div>);
     }
 }
-
-export default Button
