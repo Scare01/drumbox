@@ -60,13 +60,17 @@ class App extends React.Component {
             padButtons: buttons,
             display: ''
         }
+        this.updateDisplay = this.updateDisplay.bind(this);
+    }
 
+    updateDisplay(name) {
+        this.setState({display: name})
     }
 
     render() {
         return (<div id="drum-machine">
-            <Buttons padButtons={this.state.padButtons}/>
-            <div id="controls"></div>
+            <Buttons padButtons={this.state.padButtons} updateDisplay={this.updateDisplay}/>
+            <div id="display">{this.state.display}</div>
             <div id="copyright">RubyLupus</div>
         </div>)
     }
