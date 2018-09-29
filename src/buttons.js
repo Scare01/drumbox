@@ -8,7 +8,7 @@ export default class Buttons extends React.Component {
     }
     render() {
         let padButton = this.props.padButtons.map((drumObj, i, padButtonArr) => {
-            return (<Button id={padButtonArr[i].id} key={padButtonArr[i].keyTrigger} clip={padButtonArr[i].url} keyTrigger={padButtonArr[i].keyTrigger} keyCode={padButtonArr[i].keyCode} updateDisplay={this.props.updateDisplay}/>)
+            return (<Button id={padButtonArr[i].id} key={padButtonArr[i].id} clip={padButtonArr[i].url} keyTrigger={padButtonArr[i].keyTrigger} keyCode={padButtonArr[i].keyCode} updateDisplay={this.props.updateDisplay}/>)
         });
         return (<div id="displayPad">
             {padButton}
